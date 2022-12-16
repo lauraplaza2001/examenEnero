@@ -73,7 +73,7 @@ const MainAppBar = ({ login }) => {
                 textDecoration: 'none',
               }}
             >
-             Laura Plaza González
+            EMTInfo
             </Typography>
   
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -117,18 +117,7 @@ const MainAppBar = ({ login }) => {
                     Anuncios
                   </Link>
                 </MenuItem>
-                <MenuItem key="Mis Viviendas" onClick={handleCloseNavMenu}>
-                  <Link
-                    sx={{
-                      textAling: "center",
-                      color: "black",
-                    }}
-                    onClick={() => navigate("/Mis Viviendas")}
-                    underline="none"
-                  >
-                    Mis Viviendas
-                  </Link>
-                </MenuItem>
+               
               </Menu>
             </Box>
             <Typography
@@ -147,7 +136,7 @@ const MainAppBar = ({ login }) => {
                 textDecoration: 'none',
               }}
             >
-              Vé y Ve
+             
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
@@ -157,13 +146,7 @@ const MainAppBar = ({ login }) => {
               >
                 Anuncios
               </Button>
-              <Button
-                key="Mis Viviendas"
-                onClick={() => navigate("/Mis Viviendas")}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Mis Viviendas
-              </Button>
+            
             </Box>
             <LogButton />
           </Toolbar>
