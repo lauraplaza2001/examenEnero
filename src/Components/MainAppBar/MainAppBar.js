@@ -14,6 +14,9 @@ import { GoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import Image from 'mui-image';
 import { useNavigate } from 'react-router-dom';
+import CommonButton from '../../common/CommonButton/CommonButton';
+import { Styler } from '../Styler/Styler';
+
 
 
 const MainAppBar = ({ login }) => {
@@ -21,6 +24,7 @@ const MainAppBar = ({ login }) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [log, setLog] = useState(false);
     const [photo, setPhoto] = useState("");
+    const [user,setUser] = useState(""); 
   
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
@@ -31,20 +35,44 @@ const MainAppBar = ({ login }) => {
     };
   
     const logIn = (token) => {
-      axios.get("https://d6ys3h.deta.dev/usuarios/logIn/" + token.credential).then((response) => {
+      axios.post("https://d6ys3h.deta.dev/usuarios/logIn/" + token.credential).then((response) => {
         setPhoto(response.data.foto);
         login(response.data.usuario);
         setLog(true);
       });
     };
   
+    const logOut = () => {
+      setPhoto("");
+      login();
+      setLog(false);
+
+    }
+
     const LogButton = () => {
       if (log) {
-        return <Image src={photo} height="50px" width="50px" />;
+        return (
+          <CommonButton
+          variant="contained"
+          sx={Styler.logoutbutton}
+        >
+          <Image
+            src={photo}
+            height="50px"
+            width="50px"
+            onClick={() => {
+              logOut();
+              console.log('Logout correcto');
+            }} />
+        </CommonButton>
+        );
       } else {
         return (<GoogleLogin
           onSuccess={credentialResponse => {
             logIn(credentialResponse);
+            console.log('Login correcto');
+          
+          
           }}
           onError={() => {
             console.log('Login Failed');
