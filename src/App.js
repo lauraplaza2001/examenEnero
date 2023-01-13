@@ -6,6 +6,7 @@ import React, { useEffect, useState }  from 'react';
 import MainAppBar from './Components/MainAppBar/MainAppBar';
 import Main from './pages/Main/Main';
 import Logs from './pages/Logs/Logs';
+import MostrarLog from './pages/MostrarLog/MostrarLog';
 
 
 

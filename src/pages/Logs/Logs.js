@@ -41,7 +41,7 @@ const Logs = ({ usuario }) => {
                     {logs.map((log, index) => (
                         <Box sx={{ marginBottom: '20px' }}>
                             <Typography>Usuario: {log.email}</Typography>
-                            <Typography>Caducidad: {log.caducidad.date}</Typography>
+                        {/*                      <Typography>Caducidad: {log.timestrap.date.toString()}</Typography> */}
                             <Typography>Token: {log.token}</Typography>
                         </Box>
                     ))}
@@ -51,5 +51,6 @@ const Logs = ({ usuario }) => {
         )
     }
 }
+
 
 export default Logs

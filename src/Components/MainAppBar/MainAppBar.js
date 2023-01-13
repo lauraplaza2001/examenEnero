@@ -101,8 +101,11 @@ const MainAppBar = ({ login }) => {
                 textDecoration: 'none',
               }}
             >
-            EMTInfo
+            EXAMEN
             </Typography>
+
+
+            
   
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -133,49 +136,35 @@ const MainAppBar = ({ login }) => {
                   display: { xs: 'block', md: 'none' },
                 }}
               >
-                <MenuItem key="Anuncios" onClick={handleCloseNavMenu}>
+                <MenuItem key="logs" onClick={handleCloseNavMenu}>
                   <Link
                     sx={{
                       textAling: "center",
                       color: "black",
                     }}
-                    onClick={() => navigate("/Anuncios")}
+                    onClick={() => navigate("/logs")}
                     underline="none"
                   >
-                    Anuncios
+                    Mostrar logs
                   </Link>
                 </MenuItem>
                
               </Menu>
             </Box>
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'roboto',
-                fontWeight: 700,
-                letterSpacing: '.1rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-             
-            </Typography>
+           
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
-                key="Anuncios"
-                onClick={() => navigate("/Anuncios")}
+                key="logs"
+                onClick={() => navigate("/logs")}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                Anuncios
+                Mostrar logs
               </Button>
             
             </Box>
+
+
+
             <LogButton />
           </Toolbar>
         </Container>
