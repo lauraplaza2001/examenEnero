@@ -72,6 +72,7 @@ const Main = () => {
     /*******************************FILTROS         ************ */
   
 
+    
     const handleSearchDireccion = (value) => {
         filterDataDireccion(value);
       };
@@ -128,16 +129,15 @@ const Main = () => {
           
         };
       };
+
+
+
     
-
-
       const handleFiltroDireccion = () => {
         console.log(direccion)
         getParadasNombre(direccion)
         setLineasFiltradas(paradas) 
       }
-
-
       const handleFiltroLineaSentido = () => {
         console.log(nLinea)
         console.log(sentido)
@@ -225,8 +225,6 @@ const Main = () => {
       </Grid>
 
        
-
-
 
         <Container maxWidth="xl" sx={{mb: 3}}>
         <Mapa paradas={lineasFiltradas}></Mapa>
