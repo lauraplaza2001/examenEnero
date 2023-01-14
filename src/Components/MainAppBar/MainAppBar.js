@@ -101,7 +101,7 @@ const MainAppBar = ({ login }) => {
                 textDecoration: 'none',
               }}
             >
-            EXAMEN
+            METRO DE MÁLAGA
             </Typography>
 
 
