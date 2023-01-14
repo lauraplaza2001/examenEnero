@@ -6,7 +6,7 @@ import L from 'leaflet';
 
 function puntoIcon() {
   return L.icon({
-    iconUrl: require("../../images/punto.png"),
+    iconUrl: require("../../images/gato.png"),
     iconSize: [30, 40],
   });
 };
