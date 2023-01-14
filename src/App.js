@@ -6,6 +6,7 @@ import React, {  useState }  from 'react';
 import MainAppBar from './Components/MainAppBar/MainAppBar';
 import Main from './pages/Main/Main';
 import Logs from './pages/Logs/Logs';
+import PaginaFotos from './pages/PaginaFotos/PaginaFotos';
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="" element={<Main />} /> 
           <Route path="logs"element={<Logs usuario={user}/>}/>
+          <Route path="fotos" element={<PaginaFotos/>}/>
         </Routes>
       </BrowserRouter>
  

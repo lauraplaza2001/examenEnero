@@ -163,6 +163,18 @@ const MainAppBar = ({ login }) => {
             
             </Box>
 
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Button
+                key="fotos"
+                onClick={() => navigate("/fotos")}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Fotos
+              </Button>
+            
+            </Box>
+
+
 
 
             <LogButton />
