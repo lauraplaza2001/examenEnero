@@ -23,7 +23,7 @@ const Mapa = ({paradas}) => {
        {paradas.map((parada, idx) => 
           <Marker key={`parada-${idx}`} position={[parada.lat, parada.lon]} icon={puntoIcon()}>
           <Popup>
-           Parada
+           Parada  {parada.nombreParada} 
           </Popup>
         </Marker>
         )}
