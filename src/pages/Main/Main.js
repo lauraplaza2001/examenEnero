@@ -21,6 +21,7 @@ const Main = () => {
     
     const [nLinea,setnLinea] = useState();
     const [sentido,setSentido] = useState();
+    const [direccion,setDireccion] = useState();
 
 
     const getParadas = async () => {
@@ -35,13 +36,13 @@ const Main = () => {
         setCargando(false);
         setParadas(response.data);
     }
-{/*
+
     const getParadasNombre= async (value) => {
         const response = await axios.get("https://twk28h.deta.dev/paradas/"+ value);
         setCargando(false);
         setParadas(response.data);
     }
-    */}
+    
 
     const getParadasDireccion= async (value) => {
         const response = await axios.get("https://twk28h.deta.dev/paradas/direccion"+ value);
@@ -130,7 +131,11 @@ const Main = () => {
     
 
 
-
+      const handleFiltroDireccion = () => {
+        console.log(direccion)
+        getParadasNombre(direccion)
+        setLineasFiltradas(paradas) 
+      }
 
 
       const handleFiltroLineaSentido = () => {
@@ -190,6 +195,30 @@ const Main = () => {
                 
                 />
              <Button onClick={handleFiltroLineaSentido}  >Filtrar</Button>
+             
+        </form>
+        </Grid>
+      </Grid>
+
+
+
+
+      
+      <Grid container spacing={2} sx={{ paddingTop: '20px' }}>
+        <Grid item md={6}>
+        <form >
+             <TextField
+                name= "direccion"
+                id="direccion"
+                label="Direccion" 
+                required
+                value={direccion}
+                type="txt"
+                onChange={(event) => setDireccion(event.target.value)}
+                />
+
+
+             <Button onClick={handleFiltroDireccion}  >Filtrar</Button>
              
         </form>
         </Grid>
