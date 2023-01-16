@@ -169,7 +169,20 @@ const MainAppBar = ({ login }) => {
                 onClick={() => navigate("/fotos")}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                Fotos
+                UP Publicaciones
+              </Button>
+            
+            </Box>
+
+           
+
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Button
+                key="logs"
+                onClick={() => navigate("/showpublicaciones")}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Mostrar publicaciones
               </Button>
             
             </Box>

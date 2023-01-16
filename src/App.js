@@ -7,6 +7,7 @@ import MainAppBar from './Components/MainAppBar/MainAppBar';
 import Main from './pages/Main/Main';
 import Logs from './pages/Logs/Logs';
 import PaginaFotos from './pages/PaginaFotos/PaginaFotos';
+import MostrarPublicaciones from './pages/MostrarPublicaciones/MostrarPublicaciones';
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="" element={<Main />} /> 
           <Route path="logs"element={<Logs usuario={user}/>}/>
           <Route path="fotos" element={<PaginaFotos/>}/>
+          <Route path="showpublicaciones" element= {<MostrarPublicaciones/>}/>
         </Routes>
       </BrowserRouter>
  
