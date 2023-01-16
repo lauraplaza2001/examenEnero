@@ -42,6 +42,7 @@ const Logs = ({ usuario }) => {
                         <Box sx={{ marginBottom: '20px' }}>
                             <Typography>Usuario: {log.email}</Typography>
                         {/*                      <Typography>Caducidad: {log.timestrap.date.toString()}</Typography> */}
+                            <Typography>Fecha: {Date.now()}</Typography>
                             <Typography>Token: {log.token}</Typography>
                         </Box>
                     ))}
