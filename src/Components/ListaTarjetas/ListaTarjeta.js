@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import TarjetaPublicacion from '../TarjetaPublicacion/TarjetaPublicacion';
 
 
-const ListaTarjetas = ({locations, funcion, text}) => {
+const ListaTarjetas = ({usuario,locations, funcion, text}) => {
    
 
   if (!locations.length){
@@ -18,7 +18,7 @@ const ListaTarjetas = ({locations, funcion, text}) => {
       {locations.map((publicaciones) => {
           return (
             <Grid key={publicaciones.id} item xs={12} sm={4} md={4} lg={3}>
-              <TarjetaPublicacion publicaciones={publicaciones} funcion={funcion} />
+              <TarjetaPublicacion usuario={usuario} publicaciones={publicaciones} funcion={funcion} />
             </Grid>
           );
         })}

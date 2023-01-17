@@ -4,7 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import axios from 'axios'
 import ListaTarjetas from '../../Components/ListaTarjetas/ListaTarjeta';
 
-const MostrarPublicaciones = () => {
+const MostrarPublicaciones = ({usuario}) => {
     const [cargando, setCargando] = useState(true);
     const [publicaciones, setPublicaciones] = useState([]);
     
@@ -27,7 +27,7 @@ const MostrarPublicaciones = () => {
       <Container maxWidth="xl" sx={{mb: 3}}>
 
     
-          <ListaTarjetas locations={publicaciones} />
+          <ListaTarjetas usuario= {usuario} locations={publicaciones} />
           
       </Container>
     )

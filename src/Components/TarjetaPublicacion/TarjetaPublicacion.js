@@ -10,7 +10,7 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 import CardActions from '@mui/material/CardActions';
 
-const TarjetaPublicacion = ({ publicaciones}) => {
+const TarjetaPublicacion = ({ usuario,publicaciones}) => {
 
   const [show, setShow] = useState("auto");
   const navigate = useNavigate();
@@ -19,11 +19,13 @@ const TarjetaPublicacion = ({ publicaciones}) => {
   const borrarPublicacion = async (id) => {
       console.log(id);
      axios.delete("https://kai44g.deta.dev/publicaciones/eliminar/"+id);
-   
+  }
+
+  
        
 
 
-}
+
 
 
     
@@ -81,9 +83,29 @@ return (
         size="small" 
         color="secondary"
         variant="contained"
+        disabled= {usuario.email === undefined}
         >
               Borrar
         </Button>
+
+          
+        <Button 
+        onClick={() => {
+
+            navigate("/EditarPublicacion",{state:{publicaciones}});
+          
+          
+        }}
+        size="small" 
+        color="secondary"
+        variant="contained"
+        disabled= {usuario.email === undefined}
+        >
+              Editar
+        </Button>
+
+
+
       </CardActions>
     </Card>   
 

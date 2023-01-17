@@ -10,16 +10,19 @@ import Box from '@mui/material/Box';
 import Image from 'mui-image'
 import { useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
+import { useLocation } from "react-router-dom";
+
 
 
 
 
 const EditarPublicacion = () => {
+    const publicaciones= useLocation().state.publicaciones;
 
     const navigate = useNavigate();
     const defaultValues={
-        email: "laura@gmail.com",
-        id : "63c30e6d62aa61e95dd2c8a2",
+        email: "",
+        id : "",
         texto: "",
         fotos : []
     }
@@ -27,9 +30,9 @@ const EditarPublicacion = () => {
 
     const [values, setValues] = useState(defaultValues);
 
-    const addFoto = (url) => {
-        values.fotos.push(url);
-    };
+  
+
+
 
     const validationSchema = Yup.object().shape({
         texto: Yup.string().required("Texto obligatorio").min(20, "20 caracteres mínimo").max(400, "400 caracteres máximo"),                                              // eslint-disable-line
@@ -45,30 +48,36 @@ const EditarPublicacion = () => {
         resolver: yupResolver(validationSchema),
     });
 
-    const addPublicacion = (data) => {
-        
-        if(values.fotos.length >= 1){
-            axios.post("https://kai44g.deta.dev/publicaciones/crear",
-                {
 
-                    "id" : values.id,
-                    "email" : values.email,
+
+    const editPublicacion = (data) => {
+        
+            axios.put("https://kai44g.deta.dev/publicaciones/editar" ,
+                {
+            
+                    "id" : publicaciones._id.$oid,
+                    "usuario" : publicaciones.usuario._id.$oid,
+                    "email" : publicaciones.usuario.email,
                     "texto": values.texto,
-                    "fotos": values.fotos
+                    "fotos": publicaciones.fotos
+
                    
                     
                 }).then(() => {
-                    navigate("/")
+                    navigate("/showpublicaciones")
                 }).catch((response) =>{
-                    console.log(response)
-                    console.log(values.id)
+                    console.log(publicaciones._id.$oid)
+                    console.log(publicaciones.usuario._id.$oid)
+                    console.log(publicaciones.usuario.email)
                     console.log(values.texto)
-                    console.log(values.email)
+                    console.log(publicaciones.fotos)
+                    console.log(response)
+                  
+
+                    console.log(publicaciones)
                     
                 });
-        }else{
-            color = "error";
-        }
+       
 
 
     }
@@ -88,13 +97,13 @@ const EditarPublicacion = () => {
         </Grid>
         <Grid item container md={6} xs={12} sx={{margin: '20px'}} alignItems="center"  justifyContent="center" >
             <Box sx={{maxWidth: '650px'}}>
-            <form onSubmit={handleSubmit(addPublicacion)} onKeyPress={e => { e.which === 13 && e.preventDefault() }} noValidate>
+            <form onSubmit={handleSubmit(editPublicacion)} onKeyPress={e => { e.which === 13 && e.preventDefault() }} noValidate>
                 <Grid container spacing={2} sx={{ paddingRight: '10px', paddingBottom: '10px', border: 1, borderRadius: 5, borderColor: "#BF40BF"}}>
                  
                     <Grid item md={9}><TextField placeholder='Texto'fullWidth multiline rows={3} maxrows={5} label="Texto" {...register('texto')} error={errors.texto ? true : false} helperText={errors.texto?.message} name='texto' required onChange={(event) => handleChange({...values, texto: event.target.value})}/></Grid>
-                    <Grid item ><Cloudinary func={addFoto} color={color}/></Grid>
+                   
                 </Grid>
-                <Button type="submit" variant="contained" color="primary" sx={{marginTop: '20px'}}>Crear</Button>
+                <Button type="submit" variant="contained" color="primary" sx={{marginTop: '20px'}}>Editar</Button>
             </form>
             </Box>
         </Grid>
