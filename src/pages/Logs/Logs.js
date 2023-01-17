@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Styler } from '../../Components/Styler/Styler';
 
+
 const Logs = ({ usuario }) => {
     const navigate = useNavigate();
     const [logs, setLogs] = useState([]);
@@ -21,6 +22,7 @@ const Logs = ({ usuario }) => {
         const response = await axios.get("https://d6ys3h.deta.dev/usuarios");
         setLogs(response.data)
         setCargando(false);
+     
     }
 
     useEffect(() => {
@@ -41,8 +43,10 @@ const Logs = ({ usuario }) => {
                     {logs.map((log, index) => (
                         <Box sx={{ marginBottom: '20px' }}>
                             <Typography>Usuario: {log.email}</Typography>
-                        {/*                      <Typography>Caducidad: {log.timestrap.date.toString()}</Typography> */}
-                            <Typography>Fecha: {Date.now()}</Typography>
+                        {/*                      <Typography>Caducidad: { log.timestrap.date.toString()}</Typography> */}
+                     { /*{console.log( new Date(log.timestrap.$date).toDateString())}*/}
+                                              <Typography>Caducidad: { new Date(log.timestrap.$date).toDateString()}</Typography> 
+                          
                             <Typography>Token: {log.token}</Typography>
                         </Box>
                     ))}
