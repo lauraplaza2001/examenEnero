@@ -14,16 +14,14 @@ import TextField from '@mui/material/TextField';
 
 
 
-const PaginaFotos = ({usuario}) => {
-    const navigate = useNavigate();
+const EditarPublicacion = () => {
 
-   
+    const navigate = useNavigate();
     const defaultValues={
-        email: "",
-        id :"",
+        email: "laura@gmail.com",
+        id : "63c30e6d62aa61e95dd2c8a2",
         texto: "",
         fotos : []
-       
     }
     let color = "primary";
 
@@ -49,13 +47,12 @@ const PaginaFotos = ({usuario}) => {
 
     const addPublicacion = (data) => {
         
-        
         if(values.fotos.length >= 1){
             axios.post("https://kai44g.deta.dev/publicaciones/crear",
                 {
 
-                    "id" : usuario._id.$oid,
-                    "email" : usuario.email,
+                    "id" : values.id,
+                    "email" : values.email,
                     "texto": values.texto,
                     "fotos": values.fotos
                    
@@ -84,7 +81,7 @@ const PaginaFotos = ({usuario}) => {
 
 
     return(
-        
+
         <Grid container spacing={2} sx={{paddingTop: '10px'}}>
         <Grid item sx={{flexGrow: 1, display: { xs: 'none', md: 'flex' }}} >
            
@@ -106,4 +103,4 @@ const PaginaFotos = ({usuario}) => {
 
 }
 
-export default PaginaFotos ; 
+export default EditarPublicacion ; 

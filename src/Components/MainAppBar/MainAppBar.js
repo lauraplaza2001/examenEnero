@@ -35,10 +35,16 @@ const MainAppBar = ({ login }) => {
     };
   
     const logIn = (token) => {
-      axios.post("https://d6ys3h.deta.dev/usuarios/logIn/" + token.credential).then((response) => {
+      axios.get("https://3km09l.deta.dev/user/logIn/" + token.credential).then((response) => {
+        
         setPhoto(response.data.foto);
         login(response.data.usuario);
         setLog(true);
+        console.log(response.data.usuario);
+        setUser(response.data.usuario);
+    
+
+        
       });
     };
   
@@ -136,7 +142,7 @@ const MainAppBar = ({ login }) => {
                   display: { xs: 'block', md: 'none' },
                 }}
               >
-                <MenuItem key="logs" onClick={handleCloseNavMenu}>
+            {/*    <MenuItem key="logs" onClick={handleCloseNavMenu}>
                   <Link
                     sx={{
                       textAling: "center",
@@ -147,12 +153,15 @@ const MainAppBar = ({ login }) => {
                   >
                     Mostrar logs
                   </Link>
-                </MenuItem>
+                </MenuItem> */}
+               
+
+
                
               </Menu>
             </Box>
            
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+       {/*}     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
                 key="logs"
                 onClick={() => navigate("/logs")}
@@ -161,12 +170,13 @@ const MainAppBar = ({ login }) => {
                 Mostrar logs
               </Button>
             
-            </Box>
+            </Box>  */}
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
                 key="fotos"
                 onClick={() => navigate("/fotos")}
+                disabled={user.email === undefined}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 UP Publicaciones

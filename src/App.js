@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path="" element={<Main />} /> 
           <Route path="logs"element={<Logs usuario={user}/>}/>
-          <Route path="fotos" element={<PaginaFotos/>}/>
+          <Route path="fotos" element={<PaginaFotos usuario={user}/>}/>
           <Route path="showpublicaciones" element= {<MostrarPublicaciones/>}/>
         </Routes>
       </BrowserRouter>
