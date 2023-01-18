@@ -10,38 +10,23 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 import CardActions from '@mui/material/CardActions';
 
-const TarjetaPublicacion = ({ usuario,publicaciones}) => {
+const TarjetaPublicacion = ({ aparcamiento}) => {
 
   const [show, setShow] = useState("auto");
   const navigate = useNavigate();
 
 
-  const borrarPublicacion = async (id) => {
-      console.log(id);
-     axios.delete("https://kai44g.deta.dev/publicaciones/eliminar/"+id);
-  }
-
   
        
 
-
-
-
-
-    
   
 return ( 
     <Card sx={{ height: '425px' ,  border: '3px solid #BF40BF' ,  padding:"5px" ,  borderRadius: 5, display: show}}>
-      <CardMedia
-        component="img"
-        height="140"
-        image={publicaciones.fotos[0]}
-       /* alt="Vivienda"*/
-      />
+     
       <CardContent>
       
 
-        <Typography variant="overline"> {publicaciones.usuario.email}</Typography>
+        <Typography variant="overline"> {aparcamiento.nombre}</Typography>
    
       <Box
         component="span"
@@ -59,10 +44,15 @@ return (
           borderRadius: 2,
           fontSize: '0.875rem',
           fontWeight: '700',
-          height:"100px"
+          height:"300px"
         }}
       >
-           <Typography align = "justify" paragraph="true" overflor="scroll" height="1px"> {publicaciones.texto} </Typography> 
+           <Typography align = "justify" paragraph="true" variant = 'body' overflor="scroll" height="25px"> DIRECCIÓN : {aparcamiento.direccion}   </Typography> 
+           <Typography align = "justify" paragraph="true" overflor="scroll" height="20px"> {aparcamiento.latitud}  {aparcamiento.longitud}  </Typography> 
+           <Typography align = "justify" paragraph="true" overflor="scroll" height="20px"> CAPACIDAD:  {aparcamiento.capacidad}. </Typography> 
+           <Typography align = "justify" paragraph="true" overflor="scroll" height="20px"> PLAZAS DISPONIBLES:  {aparcamiento.libres} </Typography> 
+           <Typography align = "justify" paragraph="true" overflor="scroll" height="20px"> CONTACTO: {aparcamiento.correo} </Typography> 
+
       </Box>
         
     
@@ -72,37 +62,8 @@ return (
       </CardContent>
       <CardActions>
         
-        <Button 
-        onClick={() => {
-         
-            borrarPublicacion(publicaciones._id.$oid);
-            navigate("/");
-          
-          
-        }}
-        size="small" 
-        color="secondary"
-        variant="contained"
-        disabled= {usuario.email === undefined}
-        >
-              Borrar
-        </Button>
+       
 
-          
-        <Button 
-        onClick={() => {
-
-            navigate("/EditarPublicacion",{state:{publicaciones}});
-          
-          
-        }}
-        size="small" 
-        color="secondary"
-        variant="contained"
-        disabled= {usuario.email === undefined}
-        >
-              Editar
-        </Button>
 
 
 

@@ -35,7 +35,7 @@ const MainAppBar = ({ login }) => {
     };
   
     const logIn = (token) => {
-      axios.get("https://3km09l.deta.dev/user/logIn/" + token.credential).then((response) => {
+      axios.post("https://d6ys3h.deta.dev/usuarios/logIn/" + token.credential).then((response) => {
         
         setPhoto(response.data.foto);
         login(response.data.usuario);
@@ -107,7 +107,7 @@ const MainAppBar = ({ login }) => {
                 textDecoration: 'none',
               }}
             >
-            METRO DE MÁLAGA
+           ParkingNET
             </Typography>
 
 
@@ -142,60 +142,27 @@ const MainAppBar = ({ login }) => {
                   display: { xs: 'block', md: 'none' },
                 }}
               >
-            {/*    <MenuItem key="logs" onClick={handleCloseNavMenu}>
-                  <Link
-                    sx={{
-                      textAling: "center",
-                      color: "black",
-                    }}
-                    onClick={() => navigate("/logs")}
-                    underline="none"
-                  >
-                    Mostrar logs
-                  </Link>
-                </MenuItem> */}
-               
+      
 
 
                
               </Menu>
             </Box>
            
-       {/*}     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Button
-                key="logs"
-                onClick={() => navigate("/logs")}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Mostrar logs
-              </Button>
-            
-            </Box>  */}
+  
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
-                key="fotos"
-                onClick={() => navigate("/fotos")}
+                key="perfil"
+                onClick={() => navigate("/perfil")}
                 disabled={user.email === undefined}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                UP Publicaciones
+                Mi Perfil
               </Button>
             
             </Box>
 
-           
-
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Button
-                key="logs"
-                onClick={() => navigate("/showpublicaciones")}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Mostrar publicaciones
-              </Button>
-            
-            </Box>
 
 
 

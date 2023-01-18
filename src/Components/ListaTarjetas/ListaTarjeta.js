@@ -15,10 +15,10 @@ const ListaTarjetas = ({usuario,locations, funcion, text}) => {
   return (
      <Box sx={{ mx: 2 }}>
       <Grid container rowSpacing={3} columnSpacing={3}>
-      {locations.map((publicaciones) => {
+      {locations.map((aparcamiento) => {
           return (
-            <Grid key={publicaciones.id} item xs={12} sm={4} md={4} lg={3}>
-              <TarjetaPublicacion usuario={usuario} publicaciones={publicaciones} funcion={funcion} />
+            <Grid key={aparcamiento.poiID} item xs={12} sm={4} md={4} lg={3}>
+              <TarjetaPublicacion  aparcamiento={aparcamiento} funcion={funcion} />
             </Grid>
           );
         })}

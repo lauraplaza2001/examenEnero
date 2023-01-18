@@ -6,9 +6,8 @@ import React, {  useState }  from 'react';
 import MainAppBar from './Components/MainAppBar/MainAppBar';
 import Main from './pages/Main/Main';
 import Logs from './pages/Logs/Logs';
-import PaginaFotos from './pages/PaginaFotos/PaginaFotos';
-import MostrarPublicaciones from './pages/MostrarPublicaciones/MostrarPublicaciones';
-import EditarPublicacion from './pages/EditarPublicacion/EditarPublicacion';
+import Main2 from './pages/Main2/Main2';
+import Perfil from './pages/Perfil/Perfil';
 
 
 
@@ -25,11 +24,11 @@ function App() {
       <BrowserRouter>
         <MainAppBar login={setUser}/>
         <Routes>
-          <Route path="" element={<Main />} /> 
+         {/* <Route path="" element={<Main />} />  */}
+          <Route path="" element={<Main2 />} /> 
           <Route path="logs"element={<Logs usuario={user}/>}/>
-          <Route path="fotos" element={<PaginaFotos usuario={user}/>}/>
-          <Route path="showpublicaciones" element= {<MostrarPublicaciones usuario={user} />}/>
-          <Route path="EditarPublicacion" element= {<EditarPublicacion usuario={user} />}/>
+          <Route path="perfil" element= {<Perfil usuario={user} />}/>
+
         </Routes>
       </BrowserRouter>
  
