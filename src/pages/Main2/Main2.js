@@ -11,7 +11,7 @@ import SearchBar from "../../common/SearchBar/SearchBar";
 import Grid from '@mui/material/Grid';
 import { Styler } from '../../Components/Styler/Styler';
 import ListaTarjetas from "../../Components/ListaTarjetas/ListaTarjeta";
-
+import { useNavigate } from 'react-router-dom';
 import Button from "@mui/material/Button";
 
 
@@ -19,6 +19,7 @@ const Main2 = ({ usuario }) => {
     const [aparcamientos,setAparcamientos] = useState([]);
     const [cargando, setCargando] = useState(true);
     const [aparcamientosFiltrados, setAparcamientosFiltrados] = useState([]);
+    const navigate = useNavigate();
 
 
 
@@ -51,6 +52,7 @@ const Main2 = ({ usuario }) => {
         getAparcamientos()
         // eslint-disable-next-line react-hooks/exhaustive-deps
         setAparcamientosFiltrados(aparcamientos)
+        
 
     }, [cargando]);
 
@@ -101,8 +103,7 @@ const Main2 = ({ usuario }) => {
         </Grid>
       </Grid>
 
-       
-
+     
         <Container maxWidth="xl" sx={{mb: 3}}>
         <Mapa aparcamientos={aparcamientosFiltrados}></Mapa>
         </Container>
@@ -113,6 +114,10 @@ const Main2 = ({ usuario }) => {
           <ListaTarjetas  locations={aparcamientosFiltrados} />
           
       </Container>
+   
+             
+            
+           
 
 
         </div>

@@ -16,6 +16,7 @@ import Image from 'mui-image';
 import { useNavigate } from 'react-router-dom';
 import CommonButton from '../../common/CommonButton/CommonButton';
 import { Styler } from '../Styler/Styler';
+import { SettingsBackupRestoreRounded } from '@mui/icons-material';
 
 
 
@@ -25,6 +26,7 @@ const MainAppBar = ({ login }) => {
     const [log, setLog] = useState(false);
     const [photo, setPhoto] = useState("");
     const [user,setUser] = useState(""); 
+    const [token,setToken] = useState("");
   
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
@@ -35,13 +37,16 @@ const MainAppBar = ({ login }) => {
     };
   
     const logIn = (token) => {
+      console.log(token);
       axios.post("https://d6ys3h.deta.dev/usuarios/logIn/" + token.credential).then((response) => {
         
         setPhoto(response.data.foto);
         login(response.data.usuario);
         setLog(true);
-        console.log(response.data.usuario);
         setUser(response.data.usuario);
+        setToken(token);
+        
+
     
 
         
@@ -154,9 +159,9 @@ const MainAppBar = ({ login }) => {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
                 key="perfil"
-                onClick={() => navigate("/perfil")}
-                disabled={user.email === undefined}
+                onClick={() => navigate("/perfil", { state: { token } })}
                 sx={{ my: 2, color: 'white', display: 'block' }}
+    
               >
                 Mi Perfil
               </Button>

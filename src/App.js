@@ -25,7 +25,7 @@ function App() {
         <MainAppBar login={setUser}/>
         <Routes>
          {/* <Route path="" element={<Main />} />  */}
-          <Route path="" element={<Main2 />} /> 
+          <Route path="" element={<Main2 usuario={user}/>} /> 
           <Route path="logs"element={<Logs usuario={user}/>}/>
           <Route path="perfil" element= {<Perfil usuario={user} />}/>
 
