@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import React, {  useState }  from 'react';
 import MainAppBar from './Components/MainAppBar/MainAppBar';
-import Main from './pages/Main/Main';
+
 import Logs from './pages/Logs/Logs';
 import Main2 from './pages/Main2/Main2';
 import Perfil from './pages/Perfil/Perfil';
@@ -26,7 +26,6 @@ function App() {
         <Routes>
          {/* <Route path="" element={<Main />} />  */}
           <Route path="" element={<Main2 usuario={user}/>} /> 
-          <Route path="logs"element={<Logs usuario={user}/>}/>
           <Route path="perfil" element= {<Perfil usuario={user} />}/>
 
         </Routes>

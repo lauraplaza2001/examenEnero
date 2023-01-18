@@ -33,7 +33,7 @@ const Perfil = () => {
         console.log(response.data);
         setCargando(false);
         console.log(response.data.conexion.timestrap.$date);
-        console.log(foto);
+      
      
     }
 
@@ -59,7 +59,7 @@ const Perfil = () => {
 
                     <Box sx={{ marginBottom: '20px' }}>
                             <Typography>USUARIO: {logs.email}</Typography>
-                                    
+                              
                           {/**   <Typography>Conexión timestrap, iat: { new Date(logs.conexion.timestrap.$date).toDateString()}   { new Date(logs.conexion.iat.$date).toDateString()}  </Typography> 
                              <Typography>Caducidad timestrap, exp: { new Date(logs.caducidad.timestrap.$date).toDateString()}   { new Date(logs.caducidad.exp.$date).toDateString()}  </Typography> 
                              <Typography>Token: {logs.token}</Typography>
