@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from "react-router-dom";
-import { CircularProgress } from '@mui/material';
+import { CardMedia, CircularProgress } from '@mui/material';
 import Container from '@mui/material/Container';
 import axios from 'axios';
 import Titulo from '../../common/Titulo/Titulo';
@@ -16,6 +16,7 @@ const Perfil = () => {
     const [logs, setLogs] = useState([]);
 
     const token = useLocation().state.token;
+    const foto = useLocation().state.photo;
  
 
     const [cargando, setCargando] = useState(true);
@@ -32,6 +33,7 @@ const Perfil = () => {
         console.log(response.data);
         setCargando(false);
         console.log(response.data.conexion.timestrap.$date);
+        console.log(foto);
      
     }
 
@@ -49,8 +51,14 @@ const Perfil = () => {
             <div class="page" style={Styler.page}>
                 <Container maxWidth="xl" sx={{ mb: 3 }}>
                     <Titulo titulo="PERFIL" />
+                    <CardMedia
+                          component="img"
+                        image={foto}
+  
+      />
+
                     <Box sx={{ marginBottom: '20px' }}>
-                            <Typography>Usuario: {logs.email}</Typography>
+                            <Typography>USUARIO: {logs.email}</Typography>
                                     
                           {/**   <Typography>Conexión timestrap, iat: { new Date(logs.conexion.timestrap.$date).toDateString()}   { new Date(logs.conexion.iat.$date).toDateString()}  </Typography> 
                              <Typography>Caducidad timestrap, exp: { new Date(logs.caducidad.timestrap.$date).toDateString()}   { new Date(logs.caducidad.exp.$date).toDateString()}  </Typography> 
@@ -58,7 +66,8 @@ const Perfil = () => {
 
                             
                             */} 
-                            <Typography>Token: {logs.token}</Typography>
+                            <Typography>TOKEN: {logs.token}</Typography>
+           
 
                         </Box>
 

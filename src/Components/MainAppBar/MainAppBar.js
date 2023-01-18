@@ -159,7 +159,7 @@ const MainAppBar = ({ login }) => {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
                 key="perfil"
-                onClick={() => navigate("/perfil", { state: { token } })}
+                onClick={() => navigate("/perfil", { state: { token, photo} })}
                 sx={{ my: 2, color: 'white', display: 'block' }}
     
               >
